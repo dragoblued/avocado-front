@@ -4,19 +4,22 @@ import propTypes from 'prop-types';
 import './button.scss';
 
 const Button = props => {
-  const { label, ...otherProps } = props;
-
+  const { label, type, onClick, className, ...otherProps } = props;
+  const classList = 'button ' + className;
   return (
-    <button className='button' {...otherProps}>
+    <button className = {classList}  type={type} onClick={onClick} {...otherProps} >
       {label}
     </button>
   );
 };
 
 Button.propTypes = {
-  label: propTypes.string
+  label: propTypes.string,
+
 };
 
 Button.defaultProps = {
   label: 'SUBMIT'
 };
+
+export default Button;

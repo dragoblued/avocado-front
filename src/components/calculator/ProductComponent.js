@@ -21,9 +21,9 @@ class ProductComponent extends React.Component {
  		if (this.state.deleteProduct === false) {
  			item = (
 	 			<div>
-	 				<p>{product.date}</p>
-					<p>{product.nameProduct}</p>
-					<p>{product.count}</p>
+	 				<p>{product.time}</p>
+					<p>{product.name}</p>
+					<p>{product.colorious}</p>
 		            <button onClick={this.handleDelete}>
 		            	delete
 		            </button>

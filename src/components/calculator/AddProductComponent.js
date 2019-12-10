@@ -1,6 +1,11 @@
 import React from 'react';
+
 import store from "../store/store";
 import {addProduct} from "../store/actions";
+
+import Button from '../items/button/button';
+import Input from '../items/input/input';
+import './calculator.scss';
 
 class AddTaskComponent extends React.Component {
 	constructor(props) {
@@ -60,25 +65,23 @@ class AddTaskComponent extends React.Component {
 		let form;
     	if (this.state.openForm === false) {
     		form = (
-    			<div>
-        			<button onClick={this.onOpen}>
-        			Add task
-          			</button>
+    			<div className='calculator'>
+        			<Button  onClick={this.onOpen} label="add product" className='button__addproduct'/>
         		</div>
       		);
     	} else {
 	    	form = (
-	        	<div>
+	        	<div className='calculator'>
 	        		<form onSubmit={this.handleSubmit}>
-			              <div>
-			                <input
+			              <div className='calculator_input'>
+			                <Input
 			                  name="nameProduct"
 			                  type="text"
 			                  label="nameProduct"
 			                  onChange={this.handleChange}
 			                  value={this.state.nameProduct}
 			                />
-			                 <input
+			                 <Input
 			                 name="count"
 			                 type="text"
 			                 label="count"
@@ -86,13 +89,9 @@ class AddTaskComponent extends React.Component {
 			                  value={this.state.count}
 			                />
 			                </div>
-			            <div>
-			              <button type="submit">
-			                Input
-			              </button>
-			              <button onClick={this.onClose}>
-			              Close
-			              </button>
+			            <div className='calculator_footer'>
+			              <Button type="submit" label="+"/>
+			              <Button onClick={this.onClose} label="Close"/>
 			            </div>
 	          		</form>
 	        	</div>

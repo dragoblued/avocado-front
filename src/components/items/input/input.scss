@@ -1,0 +1,17 @@
+.input {
+	width: 140px;
+	height: 40px;
+	border: solid 1px #8bc34a;
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 14px;
+	letter-spacing: 0.28px;
+  	color: #878786;
+  	padding-left: 3.4%;
+  	border-radius: 2px;	
+  	margin-top: 5px;
+  	&_label {
+		font-family: 'Anton', sans-serif;
+  		width: 150px;
+  		color: white;
+  	}
+}
