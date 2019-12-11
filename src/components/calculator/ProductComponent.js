@@ -16,14 +16,15 @@ class ProductComponent extends React.Component {
  	}
  	render() {
  		const {product} = this.props;
- 		console.log(product.nameProduct);
+ 		console.log(product);
  		let item;
  		if (this.state.deleteProduct === false) {
  			item = (
 	 			<div>
 	 				<p>{product.time}</p>
 					<p>{product.name}</p>
-					<p>{product.colorious}</p>
+					<p>{product.calories}</p>
+					<p>{product.fats} - {product.proteins} - {product.carbohydrates}</p>
 		            <button onClick={this.handleDelete}>
 		            	delete
 		            </button>

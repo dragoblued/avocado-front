@@ -13,7 +13,7 @@ class ListProductComponent extends React.Component {
 			add: 1,
 		}
 		store.subscribe(()=> {
-			products.push(store.getState());
+			this.state.listproducts.push(store.getState());
 			this.setState({
 				add: this.state.add++,
 			});
