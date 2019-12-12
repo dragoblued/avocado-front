@@ -4,6 +4,7 @@ import axios from 'axios';
 import ProductComponent from './ProductComponent';
 import store from '../store/store';
 import products from '../products';
+import './calculator.scss';
 
 class ListProductComponent extends React.Component {
 	constructor(props) {
@@ -31,8 +32,14 @@ class ListProductComponent extends React.Component {
 			return (<li><ProductComponent product={number}/></li>)
 		});
 		return(
-			<ul>
-			{listItems}
+			<ul className="list_products">
+				<li className="list_products_head">
+	 				<p>time</p>
+					<p>name</p>
+					<p>calories</p>
+					<p>P/F/C</p>
+				</li>
+				{listItems}
 			</ul>
 		);
 	}

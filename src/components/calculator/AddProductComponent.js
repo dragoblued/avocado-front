@@ -60,8 +60,10 @@ class AddTaskComponent extends React.Component {
 	    	const data = response.data;
 	    	const name = nameProduct;
 	    	console.log(data);
-	    	store.dispatch(addProduct(id, time, name, data.calories, data.totalDaily.PROCNT.quantity, data.totalDaily.FAT.quantity,  data.totalDaily.CHOCDF.quantity));
-	    });
+	    	if (data.calories !== 0) {
+	    		store.dispatch(addProduct(id, time, name, data.calories, data.totalDaily.PROCNT.quantity, data.totalDaily.FAT.quantity,  data.totalDaily.CHOCDF.quantity));
+	    	}
+	   	});
 	    e.preventDefault();
 	}
 
@@ -70,7 +72,7 @@ class AddTaskComponent extends React.Component {
     	if (this.state.openForm === false) {
     		form = (
     			<div className='calculator'>
-        			<Button  onClick={this.onOpen} label="add product" className='button__addproduct'/>
+        			<Button  onClick={this.onOpen} label="ADD PRODUCT" className='button__addproduct'/>
         		</div>
       		);
     	} else {
@@ -81,21 +83,21 @@ class AddTaskComponent extends React.Component {
 			                <Input
 			                  name="nameProduct"
 			                  type="text"
-			                  label="nameProduct"
+			                  label="NAME"
 			                  onChange={this.handleChange}
 			                  value={this.state.nameProduct}
 			                />
 			                 <Input
 			                 name="count"
 			                 type="text"
-			                 label="count"
+			                 label="GRAM"
 			                  onChange={this.handleChange}
 			                  value={this.state.count}
 			                />
 			                </div>
 			            <div className='calculator_footer'>
 			              <Button type="submit" label="+"/>
-			              <Button onClick={this.onClose} label="Close"/>
+			              <Button onClick={this.onClose} label="CLOSE"/>
 			            </div>
 	          		</form>
 	        	</div>

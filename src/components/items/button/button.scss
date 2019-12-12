@@ -12,4 +12,15 @@
 	&:hover {
 		box-shadow:  0 0 6px #7FFF00; //внутри
 	}
+	&_delete{
+		background: url('bascket.png') no-repeat;
+		background-size: cover;
+		width: 30px;
+		height: 30px;
+		border: none;
+		&:hover {
+			transform: scale(1.2);
+			box-shadow: none;	
+		}
+	}
 }

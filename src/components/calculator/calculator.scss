@@ -15,3 +15,22 @@
 		justify-content: space-around;
 	}
 }
+.list_products {
+	width: 80%;
+	list-style-type: none;
+	margin: 0 auto;
+	font-family: 'Montserrat', sans-serif;
+	color: #006400;
+	&_head {
+		width: 80%;
+		display: flex;
+		justify-content: space-between;
+		text-transform: uppercase;
+		font-weight: 800;
+		border-bottom: 2px solid #006400;
+	}
+	&_item {
+		display: flex;
+		justify-content: space-between;
+	}
+}

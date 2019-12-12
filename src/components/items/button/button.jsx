@@ -19,7 +19,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  label: 'SUBMIT'
+  label: ''
 };
 
 export default Button;
