@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import ProductComponent from './ProductComponent';
 import store from '../store/store';
+import {addProduct} from "../store/actions";
 import products from '../products';
 import './calculator.scss';
 
@@ -10,11 +11,9 @@ class ListProductComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			listproducts: [],
 			add: 1,
 		}
 		store.subscribe(()=> {
-			this.state.listproducts.push(store.getState());
 			this.setState({
 				add: this.state.add++,
 			});
@@ -23,12 +22,15 @@ class ListProductComponent extends React.Component {
 	componentDidMount() {
 	    axios.get('http://localhost:8080/addproducts').then(response => {
 	      const list= response.data.data;
-	      this.setState({ listproducts: list });
-	      console.log(this.state.listproducts);
+	      for (let i = 0; i < list.length; i++) {
+	      	store.dispatch(addProduct(list[i].id, list[i].time, list[i].name, list[i].calories, list[i].proteins, list[i].fats, list[i].carbohydrates));
+	      }
 	    })
   	}
 	render() {
-		let listItems = this.state.listproducts.map ((number) => {
+		console.log(store.getState());
+		let listproducts = store.getState();
+		let listItems = listproducts.map ((number) => {
 			return (<li><ProductComponent product={number}/></li>)
 		});
 		return(

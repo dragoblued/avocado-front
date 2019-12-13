@@ -10,7 +10,7 @@ class MenuComponent extends React.Component {
 							<a className={styles.nav__link} href="/">About</a>
 							<a className={styles.nav__link} href="/calculator">Add Product</a>
 							<a className={styles.nav__link} href="#">Statistic</a>
-							<a className={styles.nav__link} href="#">Config</a>
+							<a className={styles.nav__link} href="/config">Config</a>
 						</nav>	
 					</div>
 				<div className={styles.line}></div>

@@ -1,27 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import store from "../store/store";
+import {deleteProduct} from "../store/actions";
+
 import Button from '../items/button/button';
 import './calculator.scss';
 class ProductComponent extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			deleteProduct: false,
-		};
 		this.handleDelete = this.handleDelete.bind(this);
 	}
  	handleDelete = () => {
- 		this.setState({
- 			deleteProduct: true,
- 		})
+ 		store.dispatch(deleteProduct(this.props.product.id));
  	}
  	render() {
  		const {product} = this.props;
- 		console.log(product);
- 		let item;
- 		if (this.state.deleteProduct === false) {
- 			item = (
+ 		let item = (
 	 			<div className="list_products_item">
 	 				<p>{product.time}</p>
 					<p>{product.name}</p>
@@ -30,7 +25,6 @@ class ProductComponent extends React.Component {
 		            <Button onClick={this.handleDelete}  className="button_delete">
 		            </Button>
 				</div>);
- 		}
  		return(
  			<div>
  			{item}
