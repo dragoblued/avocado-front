@@ -7,7 +7,7 @@ const Button = props => {
   const { label, type, onClick, className, ...otherProps } = props;
   const classList = 'button ' + className;
   return (
-    <button className = {classList}  type={type} onClick={onClick} {...otherProps} >
+    <button className={ classList }  type={ type } onClick={ onClick } {...otherProps} >
       {label}
     </button>
   );

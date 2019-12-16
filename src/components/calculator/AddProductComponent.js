@@ -1,14 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import store from "../store/store";
-import {addProduct} from "../store/actions";
+
+import store from "../../store/store";
+import {addProduct} from "../../store/actions";
 
 import Button from '../items/button/button';
-import Input from '../items/input/input';
+import Input from '../items/input/input'   ;
 
 import './calculator.scss';
 
+const ids = require('short-id');
+
 class AddTaskComponent extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -17,8 +21,9 @@ class AddTaskComponent extends React.Component {
 			count: '',
 		};
 		this.onOpen = this.onOpen.bind(this);
-    	this.onClose = this.onClose.bind(this);
+    this.onClose = this.onClose.bind(this);
 	}
+
 	onOpen() {
     	this.setState(() => ({
     		openForm: true,
@@ -32,13 +37,13 @@ class AddTaskComponent extends React.Component {
 	}
 
 	handleChange = event => {
-		const {name, value} = event.target;
+		const { name, value } = event.target;
 		switch (name) {
 			case 'nameProduct':
-				this.setState({ nameProduct: value});
+				this.setState({ nameProduct: value });
 				break;
 			case 'count':
-				this.setState({count: value});
+				this.setState({ count: value });
 				break;
 			default:
 				break;
@@ -46,20 +51,14 @@ class AddTaskComponent extends React.Component {
 	}
 
 	handleSubmit = e => {
-	    const {
-	      nameProduct, count
-	    } = this.state;
+	    const { nameProduct, count } = this.state;
 	    const date = new Date();
-    	let S4 = () => {
-	    	return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-	    };
     	const time = `${date.getHours()}:${date.getMinutes()}`;
-    	const id = S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4();
+    	const id = ids.generate();
 	    const address = 'https://api.edamam.com/api/nutrition-data?app_id=4b811aca&app_key=84ada378f9d168b82daf8bb4d3a7a53d&ingr='+count+'%20gram%20'+nameProduct;
 	    axios.get(address).then(response => {
 	    	const data = response.data;
 	    	const name = nameProduct;
-	    	console.log(data);
 	    	if (data.calories !== 0) {
 	    		store.dispatch(addProduct(id, time, name, data.calories, data.totalDaily.PROCNT.quantity, data.totalDaily.FAT.quantity,  data.totalDaily.CHOCDF.quantity));
 	    	}
@@ -69,45 +68,49 @@ class AddTaskComponent extends React.Component {
 
 	render() {
 		let form;
-    	if (this.state.openForm === false) {
-    		form = (
-    			<div className='calculator'>
-        			<Button  onClick={this.onOpen} label="ADD PRODUCT" className='button__addproduct'/>
-        		</div>
-      		);
-    	} else {
-	    	form = (
-	        	<div className='calculator'>
-	        		<form onSubmit={this.handleSubmit}>
-			              <div className='calculator_input'>
-			                <Input
-			                  name="nameProduct"
-			                  type="text"
-			                  label="NAME"
-			                  onChange={this.handleChange}
-			                  value={this.state.nameProduct}
-			                />
-			                 <Input
-			                 name="count"
-			                 type="text"
-			                 label="GRAM"
-			                  onChange={this.handleChange}
-			                  value={this.state.count}
-			                />
-			                </div>
-			            <div className='calculator_footer'>
-			              <Button type="submit" label="+"/>
-			              <Button onClick={this.onClose} label="CLOSE"/>
-			            </div>
-	          		</form>
-	        	</div>
-	      );
-	    }
-	    return (
-	      <>
-	        <div>{form}</div>
-	      </>
+    if (this.state.openForm === false) {
+    	form = (
+    		<div className='calculator'>
+        	<Button  onClick={this.onOpen} 
+        		label="ADD PRODUCT" 
+        		className='button__addproduct'/>
+        </div>
+      );
+    } else {
+	    form = (
+	      <div className='calculator'>
+	        <form onSubmit={this.handleSubmit}>
+			      <div className='calculator_input'>
+			        <Input
+			        	name="nameProduct"
+			          type="text"
+			          label="NAME"
+			          className="input"
+			          onChange={ this.handleChange }
+			          value={ this.state.nameProduct }
+			        />
+			        <Input
+			          name="count"
+			          type="text"
+			          label="GRAM"
+			          className="input"
+			          onChange={ this.handleChange }
+			          value={ this.state.count }
+			        />
+			      </div>
+			      <div className='calculator_footer'>
+			        <Button type="submit" label="+"/>
+			        <Button onClick={ this.onClose } label="CLOSE"/>
+			      </div>
+	        </form>
+	      </div>
 	    );
+	  }
+	  return (
+	    <>
+	      <div>{ form }</div>
+	    </>
+	  );
 	}
 }
 

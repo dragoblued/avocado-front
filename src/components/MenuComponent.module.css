@@ -5,7 +5,7 @@
 	align-items: center;
 	width: 90%;
 	margin: 0 auto;
-	font-family: 'Anton', sans-serif;	
+	font-family: 'Anton', sans-serif;
 }
 
 .header__logo {
@@ -14,17 +14,19 @@
 	color: #4e6526;
 
 }
+
 .line {
 	width: 25%;
 	height: 5px;
 	background-color: #4e6526;
 }
 
-/*Nav*/ 
+/*Nav*/
 .nav {
 	font-size: 14px;
 	text-transform: uppercase;
 }
+
 .nav__link {
 	display: inline-block;
 	vertical-align: top;
@@ -34,6 +36,7 @@
 	text-decoration: none;
 	transition: color .1s linear;
 }
+
 .nav__link:after {
 	content: "";
 	display: none;
@@ -44,11 +47,13 @@
 	top: 100%;
 	left: 0;
 	z-index: 1;
-	transition: opacity 0.1s linear; 
+	transition: opacity 0.1s linear;
 }
+
 .nav__link:hover {
 	color: #96c93a;
 }
+
 .nav__link:hover:after {
 	display: block;
 }

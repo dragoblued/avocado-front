@@ -11,7 +11,14 @@
   	margin-top: 5px;
   	&_label {
 		font-family: 'Anton', sans-serif;
-  		width: 150px;
+  		width: 140px;
   		color: white;
   	}
+}
+
+.div_input {
+  width: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse; 
 }

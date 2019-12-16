@@ -7,6 +7,7 @@
   width: 200px;
   font-size: 70px;
 }
+
 .avocado {
   height: 220px;
   width: 200px;
@@ -14,6 +15,7 @@
   top: calc(55% - 140px);
   left: calc(50% - 100px);
 }
+
 .avocado_scine {
   width: 200px;
   height: 220px;
@@ -23,6 +25,7 @@
   position: absolute;
   filter: url('#gooey');
 }
+
 .avocado_scine:before {
   position: absolute;
   width: 60%;
@@ -34,6 +37,7 @@
   transform: translateX(-50%);
   border-radius: 50%;
 }
+
 .avocado__inner_shadow {
   width: 185px;
   height: 208px;
@@ -45,6 +49,7 @@
   top: 2px;
   left: 8px;
 }
+
 .avocado__inner_shadow:before {
   position: absolute;
   width: 60%;
@@ -56,6 +61,7 @@
   transform: translateX(-50%);
   border-radius: 50%;
 }
+
 .avocado__inner {
   width: 153px;
   height: 173px;
@@ -78,6 +84,7 @@
   transform: translateX(-50%);
   border-radius: 50%;
 }
+
 .avocado__seed {
   position: absolute;
   width: 120px;
@@ -88,6 +95,7 @@
   left: 40px;
   overflow: hidden;
 }
+
 .avocado__seed:after {
   content: "";
   position: absolute;
@@ -98,6 +106,7 @@
   top: 10px;
   left: 15px;
 }
+
 .avocado__seed_highlight {
   background-color: #edbd86;
   width: 20px;
@@ -108,6 +117,7 @@
   top: 80px;
   left: 67px;
 }
+
 .avocado__eye {
   width: 20px;
   height: 20px;
@@ -116,12 +126,15 @@
   top: 100px;
   position: absolute;
 }
+
 .avocado__eyeLeft {
   left: 56px;
 }
+
 .avocado__eyeRight {
   right: 60px;
 }
+
 .avocado__smile {
   width: 50px;
   height: 10px;
@@ -130,6 +143,7 @@
   left: 89px;
   overflow: hidden;
 }
+
 .avocado__smile:before {
   content: "";
   position: absolute;
@@ -139,8 +153,7 @@
   border-radius: 70%;
   top: -28px;
 }
-.donut_segment{
-}
+
 @keyframes rotation {
     from {opacity: 0;}
     to {opacity: 1;}
