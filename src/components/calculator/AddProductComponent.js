@@ -19,9 +19,10 @@ class AddTaskComponent extends React.Component {
 			openForm: false,
 			nameProduct: '',
 			count: '',
+			loader: false,
 		};
 		this.onOpen = this.onOpen.bind(this);
-    this.onClose = this.onClose.bind(this);
+    	this.onClose = this.onClose.bind(this);
 	}
 
 	onOpen() {
@@ -56,61 +57,79 @@ class AddTaskComponent extends React.Component {
     	const time = `${date.getHours()}:${date.getMinutes()}`;
     	const id = ids.generate();
 	    const address = 'https://api.edamam.com/api/nutrition-data?app_id=4b811aca&app_key=84ada378f9d168b82daf8bb4d3a7a53d&ingr='+count+'%20gram%20'+nameProduct;
+	    this.setState({loader: true});
 	    axios.get(address).then(response => {
 	    	const data = response.data;
 	    	const name = nameProduct;
 	    	if (data.calories !== 0) {
 	    		store.dispatch(addProduct(id, time, name, data.calories, data.totalDaily.PROCNT.quantity, data.totalDaily.FAT.quantity,  data.totalDaily.CHOCDF.quantity));
+		    	let productPost = store.getState()[store.getState().length - 1];
+			   	axios.post('http://localhost:8080/addproducts', productPost);
 	    	}
+	    	this.setState({loader: false});
 	   	});
 	    e.preventDefault();
 	}
 
 	render() {
 		let form;
-    if (this.state.openForm === false) {
-    	form = (
-    		<div className='calculator'>
-        	<Button  onClick={this.onOpen} 
-        		label="ADD PRODUCT" 
-        		className='button__addproduct'/>
-        </div>
-      );
-    } else {
-	    form = (
-	      <div className='calculator'>
-	        <form onSubmit={this.handleSubmit}>
-			      <div className='calculator_input'>
-			        <Input
-			        	name="nameProduct"
-			          type="text"
-			          label="NAME"
-			          className="input"
-			          onChange={ this.handleChange }
-			          value={ this.state.nameProduct }
-			        />
-			        <Input
-			          name="count"
-			          type="text"
-			          label="GRAM"
-			          className="input"
-			          onChange={ this.handleChange }
-			          value={ this.state.count }
-			        />
-			      </div>
-			      <div className='calculator_footer'>
-			        <Button type="submit" label="+"/>
-			        <Button onClick={ this.onClose } label="CLOSE"/>
-			      </div>
-	        </form>
-	      </div>
-	    );
-	  }
-	  return (
-	    <>
-	      <div>{ form }</div>
-	    </>
-	  );
+		let loader = <div className="cube-loader-own">
+					    <div className="caption">
+					      <div className="cube-loader">
+					        <div className="cube loader-1"></div>
+					        <div className="cube loader-2"></div>
+					        <div className="cube loader-4"></div>
+					        <div className="cube loader-3"></div>
+					      </div>
+					    </div>
+				  	</div>;
+		if (this.state.loader === false) {
+			loader = <div></div>
+		}
+	    if (this.state.openForm === false) {
+	    	form = (
+	    		<div className='calculator'>
+	        	<Button  onClick={this.onOpen} 
+	        		label="ADD PRODUCT" 
+	        		className='button__addproduct'/>
+	        </div>
+	      );
+	    } else {
+		    form = (
+		      <div className='calculator'>
+		        <form onSubmit={this.handleSubmit}>
+				      <div className='calculator_input'>
+				        <Input
+				          name="nameProduct"
+				          type="text"
+				          label="NAME"
+				          className="input"
+				          onChange={ this.handleChange }
+				          value={ this.state.nameProduct }
+				        />
+				        <Input
+				          name="count"
+				          type="text"
+				          label="GRAM"
+				          className="input"
+				          onChange={ this.handleChange }
+				          value={ this.state.count }
+				        />
+				      </div>
+				      <div className='calculator_footer'>
+				        <Button type="submit" label="+"/>
+				        <Button onClick={ this.onClose } label="CLOSE"/>
+				      </div>
+		        </form>
+		      </div>
+		    );
+		  }
+		  return (
+		    <>
+		      <div>{ form }</div>
+		       {loader}
+		    </>
+		  );
 	}
 }
 

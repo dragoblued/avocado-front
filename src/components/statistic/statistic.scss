@@ -1,0 +1,107 @@
+.progress
+{
+  width: 80%;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+  &-bar {
+    overflow: hidden;
+    background: white;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 1s linear;  
+    &:after {
+      background-color: #006400;
+      background-size: 40px 40px;
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      animation: progress_bar 0.8s linear infinite;
+    }
+  }
+  &_other {
+    width: 400px;
+  }
+  &-value {
+    color: #333;
+    display: block;
+    line-height: 21px;
+    text-align: center;
+  }
+  &-bg {
+    background: white;
+    position: relative;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;  
+  }
+}
+
+.progress progress
+{
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  left: -777px;
+}
+
+@for $i from 0 through 100 {
+  .progress progress[value="#{$i}"]
+  {
+    & + .progress-value:before { content : '#{$i}%' }
+    & ~ .progress-bg .progress-bar { width: $i * 1% }
+  }
+}
+
+.statistic {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &_other {
+    display: flex;
+    width: 70%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+
+.text {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 0 auto;
+  width: 600px;
+  text-align: center;
+  font-size: 64px;
+  color: #006400;
+  font-weight: bold;
+  margin-bottom: 30px;
+  &__small {
+    margin-top: 50px;
+    width: 350px;
+    font-size: 20px;
+  }
+  &__first {
+    margin-left: 5%;
+    margin-bottom: 5px;
+  }
+
+}
+.out_statistic {
+  margin-top: 5%;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  color:  #006400;
+  font-weight: bold;
+}

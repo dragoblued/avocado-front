@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import store from "../../store/store";
 import {deleteProduct} from "../../store/actions";
@@ -16,7 +17,9 @@ class ProductComponent extends React.Component {
 	}
 
  	handleDelete = () => {
- 		store.dispatch(deleteProduct(this.props.product.id));
+ 		const id = this.props.product.id;
+ 		store.dispatch(deleteProduct(id));
+		axios.delete('http://localhost:8080/addproducts', {data: this.props.product});
  	}
 
  	render() {
