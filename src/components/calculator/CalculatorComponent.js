@@ -1,18 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import store from "../../store/store";
-import {addProduct} from "../../store/actions";
-
-import AddProductComponent from './AddProductComponent';
-import ListProductsComponent from './ListProductsComponent';
+import AddProductComponent from "./AddProductComponent";
+import ListProductsComponent from "./ListProductsComponent";
 
 function CalculatorComponent() {
-	return (
-		<>
-			<AddProductComponent />
-			<ListProductsComponent />
-		</>
-	);
+  return (
+    // eslint-disable-next-line react/jsx-filename-extension
+    <>
+      <AddProductComponent />
+      <ListProductsComponent />
+    </>
+  );
 }
 
 export default CalculatorComponent;

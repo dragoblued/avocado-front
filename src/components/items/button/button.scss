@@ -1,26 +1,30 @@
 .button {
-	outline: none;
-	width: 8.687rem;
-	height: 2.5rem;
-	line-height: 2.375rem;
-	background-color: #8bc34a;
-	border-radius: 2px;
-	border: 1px solid #8bc34a;
-	text-align: center;
-	color: white;
-	font-family: 'Anton', sans-serif;
-	&:hover {
-		box-shadow:  0 0 6px #7FFF00; //внутри
-	}
-	&_delete{
-		background: url('bascket.png') no-repeat;
-		background-size: cover;
-		width: 30px;
-		height: 30px;
-		border: none;
-		&:hover {
-			transform: scale(1.2);
-			box-shadow: none;	
-		}
-	}
+  outline: none;
+  width: 8.687rem;
+  height: 2.5rem;
+  line-height: 2.375rem;
+  background-color: #8bc34a;
+  border-radius: 2px;
+  border: 1px solid #8bc34a;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  font-family: "Anton", sans-serif;
+  letter-spacing: 1px;
+
+  &:hover {
+    box-shadow: 0 0 6px #7fff00; //внутри
+  }
+
+  &_delete {
+    background: url("bascket.png") no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border: none;
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: none;
+    }
+  }
 }
