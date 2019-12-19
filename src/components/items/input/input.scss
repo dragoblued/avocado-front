@@ -2,23 +2,27 @@
   width: 140px;
   height: 40px;
   border: solid 1px #8bc34a;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: white;
   font-size: 14px;
-  letter-spacing: 0.28px;
-  color: #878786;
+  letter-spacing: 1px;
+  color: #484949;
   padding-left: 3.4%;
   border-radius: 2px;
   margin-top: 5px;
+
   &_label {
     font-family: "Anton", sans-serif;
     width: 140px;
     color: white;
+    letter-spacing: 1px;
   }
 }
 
-.div_input {
-  width: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
+.div {
+  &_input {
+    width: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
 }

@@ -10,6 +10,7 @@ import Button from "../items/button/button";
 import "./calculator.scss";
 
 class ProductComponent extends React.Component {
+
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
@@ -37,18 +38,9 @@ class ProductComponent extends React.Component {
         <Button onClick={this.handleDelete} className="button_delete"></Button>
       </div>
     );
+
     return <div>{item}</div>;
   }
 }
-
-ProductComponent.propTypes = {
-  id: PropTypes.string,
-  time: PropTypes.string
-};
-
-ProductComponent.defaultProps = {
-  id: "1",
-  time: "00:00"
-};
 
 export default ProductComponent;

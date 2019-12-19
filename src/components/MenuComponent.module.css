@@ -22,12 +22,8 @@
 }
 
 /*Nav*/
-.nav {
-  font-size: 14px;
-  text-transform: uppercase;
-}
 
-.nav__link {
+.nav_link {
   letter-spacing: 1px;
   display: inline-block;
   vertical-align: top;
@@ -38,7 +34,7 @@
   transition: color 0.1s linear;
 }
 
-.nav__link:after {
+.nav_link:after {
   content: "";
   display: none;
   width: 100%;
@@ -51,10 +47,23 @@
   transition: opacity 0.1s linear;
 }
 
-.nav__link:hover {
+.nav_link:hover {
   color: #96c93a;
 }
 
-.nav__link:hover:after {
+.nav_link_active {
+  font-size: 18px;
+  letter-spacing: 1px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 15px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.1s linear;
+  color: #96c93a;
+}
+
+.nav_link:hover:after {
   display: block;
 }

@@ -5,10 +5,10 @@ import store from "../../store/store";
 import { addProduct } from "../../store/actions";
 
 import ProductComponent from "./ProductComponent";
-
 import "./calculator.scss";
 
 class ListProductComponent extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {

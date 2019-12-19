@@ -8,19 +8,48 @@ class MenuComponent extends React.Component {
         <div className={styles.head__top}>
           <div className={styles.header__logo}>AVOCADO</div>
           <nav>
-            <a className={styles.nav__link} href="/">
+            <a
+              className={
+                window.location.href === "http://localhost:3000/"
+                  ? styles.nav_link_active
+                  : styles.nav_link
+              }
+              href="/"
+              onClick={this.onClick}
+            >
               {" "}
               About{" "}
             </a>
-            <a className={styles.nav__link} href="/calculator">
+            <a
+              className={
+                window.location.href === "http://localhost:3000/calculator"
+                  ? styles.nav_link_active
+                  : styles.nav_link
+              }
+              href="/calculator"
+            >
               {" "}
               Add Product{" "}
             </a>
-            <a className={styles.nav__link} href="/statistic">
+            <a
+              className={
+                window.location.href === "http://localhost:3000/statistic"
+                  ? styles.nav_link_active
+                  : styles.nav_link
+              }
+              href="/statistic"
+            >
               {" "}
               Statistic{" "}
             </a>
-            <a className={styles.nav__link} href="/config">
+            <a
+              className={
+                window.location.href === "http://localhost:3000/config"
+                  ? styles.nav_link_active
+                  : styles.nav_link
+              }
+              href="/config"
+            >
               {" "}
               Config{" "}
             </a>

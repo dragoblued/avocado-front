@@ -8,6 +8,7 @@ import Input from "../items/input/input";
 import "./config.scss";
 
 class ConfigComponent extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -67,18 +68,10 @@ class ConfigComponent extends React.Component {
 
   render() {
     return (
-      <div class="config">
-        <div class="config_show">
-          <p> Gender: {this.state.gender}</p>
-          <p> Age: {this.state.age}</p>
-          <p> Height: {this.state.height}</p>
-          <p> Weight: {this.state.weight}</p>
-          <p> levelActive: {this.state.levelActive}</p>
-          <p> desiredResult: {this.state.desiredResult}</p>
-        </div>
-        <div class="config_form">
-          <form onSubmit={this.handleSubmit} class="form">
-            <div>
+      <div className="config">
+        <div className="config_form">
+          <form onSubmit={this.handleSubmit} className="form">
+            <div className="config_input">
               <Input
                 type="radio"
                 name="gender"
@@ -94,6 +87,7 @@ class ConfigComponent extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
+            <div className="config_input">
             <Input
               type="text"
               name="age"
@@ -117,9 +111,8 @@ class ConfigComponent extends React.Component {
               onChange={this.handleChange}
               value={this.state.weight}
               className="input"
-            />
-            <div>
-              <p>Level of sports</p>
+            /></div>
+            <div className="config_input">
               <Input
                 type="radio"
                 name="levelActive"
@@ -142,8 +135,7 @@ class ConfigComponent extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div>
-              <p>Desired result</p>
+            <div className="config_input">
               <Input
                 type="radio"
                 name="desiredResult"
@@ -166,7 +158,9 @@ class ConfigComponent extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-            <Button type="submit" label="change" />
+            <div className="config_input">
+              <Button type="submit" label="change" />
+            </div>
           </form>
         </div>
       </div>

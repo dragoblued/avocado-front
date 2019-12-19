@@ -40,7 +40,7 @@ class LogoComponent extends React.Component {
             />
           </svg>
         </div>
-        <div className={styles.nameProduct}>
+        <div className={styles.name_product}>
           <p>AVOCADO</p>
         </div>
       </>
