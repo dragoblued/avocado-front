@@ -44,7 +44,7 @@ class ListProductComponent extends React.Component {
     let listproducts = store.getState();
     let listItems = listproducts.map(number => {
       return (
-        <li>
+        <li key={number.id}>
           <ProductComponent product={number} />
         </li>
       );

@@ -12,7 +12,6 @@ import "./calculator.scss";
 const ids = require("short-id");
 
 class AddProductComponent extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {

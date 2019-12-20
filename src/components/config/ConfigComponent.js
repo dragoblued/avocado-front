@@ -8,7 +8,6 @@ import Input from "../items/input/input";
 import "./config.scss";
 
 class ConfigComponent extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -62,7 +61,21 @@ class ConfigComponent extends React.Component {
   }
 
   handleSubmit = e => {
-    axios.patch("http://localhost:8080/config", this.state);
+    let checkoutProp = false;
+
+    if (Number(this.state.age) > 100 || Number(this.state.age) < 0)
+      checkoutProp = true;
+    if (Number(this.state.height) > 250 || Number(this.state.height) < 0)
+      checkoutProp = true;
+    if (Number(this.state.weight) > 150 || Number(this.state.weight) < 0)
+      checkoutProp = true;
+
+    if (checkoutProp == false) {
+      axios.patch("http://localhost:8080/config", this.state);
+    } else {
+      console.log("неправильно введены данные");
+    }
+
     e.preventDefault();
   };
 
@@ -88,30 +101,31 @@ class ConfigComponent extends React.Component {
               />
             </div>
             <div className="config_input">
-            <Input
-              type="text"
-              name="age"
-              label="age"
-              onChange={this.handleChange}
-              value={this.state.age}
-              className="input"
-            />
-            <Input
-              type="text"
-              name="height"
-              label="height"
-              onChange={this.handleChange}
-              value={this.state.height}
-              className="input"
-            />
-            <Input
-              type="text"
-              name="weight"
-              label="weight"
-              onChange={this.handleChange}
-              value={this.state.weight}
-              className="input"
-            /></div>
+              <Input
+                type="text"
+                name="age"
+                label="age"
+                onChange={this.handleChange}
+                value={this.state.age}
+                className="input"
+              />
+              <Input
+                type="text"
+                name="height"
+                label="height"
+                onChange={this.handleChange}
+                value={this.state.height}
+                className="input"
+              />
+              <Input
+                type="text"
+                name="weight"
+                label="weight"
+                onChange={this.handleChange}
+                value={this.state.weight}
+                className="input"
+              />
+            </div>
             <div className="config_input">
               <Input
                 type="radio"

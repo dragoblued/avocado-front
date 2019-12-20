@@ -26,9 +26,9 @@ class LogoComponent extends React.Component {
               r="15"
               fill="transparent"
               stroke="#4e6526"
-              stroke-width="1"
-              stroke-dasharray="55 10 25"
-              stroke-dashoffset="0"
+              strokeWidth="1"
+              strokeDasharray="55 10 25"
+              strokeDashoffset="0"
             ></circle>
             <line
               x1="30"
@@ -36,7 +36,7 @@ class LogoComponent extends React.Component {
               x2="32"
               y2="31"
               stroke="black"
-              stroke-width="0.2"
+              strokeWidth="0.2"
             />
           </svg>
         </div>

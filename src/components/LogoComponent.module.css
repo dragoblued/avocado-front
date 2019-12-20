@@ -1,9 +1,7 @@
 .name_product {
   font-family: "Montserrat", sans-serif;
   color: #4e6526;
-  position: absolute;
-  top: 76%;
-  left: 35%;
+  margin-left: 38%;
   width: 200px;
   font-size: 70px;
 }
